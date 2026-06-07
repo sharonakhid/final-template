@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profiles - SVTracks</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+     <nav>
+      <span class="nav__logo">SVTracks</span>
+      <div class="nav__links">
+        <a href="index.html">Search</a>
+        <a href="members.html">Profiles</a>
+        <a href="tracklist.html">Saved</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="filters">
+        <button type="button" class="filter__btn" data-filter="all">All</button>
+        <button type="button" class="filter__btn" data-filter="vocal">Vocal</button>
+        <button type="button" class="filter__btn" data-filter="hiphop">Hip-Hop</button>
+        <button type="button" class="filter__btn" data-filter="performance">Performance</button>
+      </div>
+
+      <div id="members-grid"></div>
+    </section>
+    <section>
+      <form id="contact-form">
+        <h2>Send a message or feedback</h2>
+        <label for="name-input">Name</label>
+        <input id="name-input" type="text" name="name" required minlength="2" autocomplete="name">
+        <label for="email-input">Email</label>
+        <input id="email-input" type="email" name="email" required autocomplete="email">
+        <label for="message-input">Message</label>
+        <textarea id="message-input" rows="6" cols="50" required>Type a message here</textarea>
+
+        <p id="contact-error" hidden></p>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <!-- footer content -->
+     <p>&copy; 2026 SVTracks. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="js/members.js"></script>
+</body>
+</html>

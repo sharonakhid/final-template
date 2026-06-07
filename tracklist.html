@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saved — Project Name</title>
+  <title>Tracklist — SVTracks</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <header>
     <nav>
-      <span class="nav__logo">Project Name</span>
+      <span class="nav__logo">SVTracks</span>
       <div class="nav__links">
         <a href="index.html">Search</a>
-        <a href="saved.html">Saved</a>
-      </div>
-      <div class="nav__actions">
-        <span id="nav-user"></span>
-        <button id="logout-btn" type="button">Logout</button>
+        <a href="members.html">Profiles</a>
+        <a href="tracklist.html">Saved</a>
       </div>
     </nav>
   </header>
@@ -25,17 +22,18 @@
   <main>
 
     <section>
-      <h2>Saved Items</h2>
+      <h1>My Tracklist</h1>
       <p id="saved-empty" hidden>Nothing saved yet.</p>
-      <div id="saved-grid"></div>
+      <div id="tracklist-grid"></div>
     </section>
 
   </main>
 
   <footer>
     <!-- footer content -->
+     <p>&copy; 2026 SVTracks. All rights reserved.</p>
   </footer>
 
-  <script type="module" src="js/saved.js"></script>
+  <script type="module" src="js/tracklist.js"></script>
 </body>
 </html>
