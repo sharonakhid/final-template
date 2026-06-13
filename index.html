@@ -12,7 +12,7 @@
     <nav>
       <span class="nav__logo">SVTracks</span>
       <div class="nav__links">
-        <a href="index.html">Search</a>
+        <a href="index.html" class="active">Search</a>
         <a href="members.html">Profiles</a>
         <a href="tracklist.html">Saved</a>
       </div>
@@ -28,7 +28,8 @@
       <form id="search-form">
         <!-- add your inputs here (at least 3 different types) -->
          <label for="searchbar">Search:</label>
-         <input type="text" id="searchbar" name="query" placeholder="Search for songs, artists, albums..." required minlength="2">
+         <input type="text" id="searchbar" name="query" placeholder="Search for songs, artists, albums..." required>
+         <button type="submit">Search</button>
          <label for="sort-select">Sort by:</label>
          <select id="sort-select" name="sort">
           <option value="default">Default</option>
@@ -36,7 +37,6 @@
           <option value="za">Z → A</option>
           <option value="newest">Newest First</option>
          </select>
-        <button type="submit">Search</button>
         <div class="filters">
           <label class="filter__pill">
             <input type="radio" name="unit-filter" value="All" checked>
@@ -87,21 +87,27 @@
 
         <article class="card">
           <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f0/69/16/f0691679-835f-8b9b-5baa-292b7e49423f/196922894992_Cover.jpg/600x600bb.jpg" alt="Maestro album cover">
-          <h3>Maestro</h3>
-          <p>17 is right here · 2024</p>
-          <button type="button">+ Save</button>
+          <div class="card__body">
+            <h3>Maestro</h3>
+            <p>17 is right here · 2024</p>
+            <button type="button">+ Save</button>
+          </div>
         </article>
         <article class="card">
           <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d1/66/eb/d166eb7e-7210-b3ff-be39-638cd37bfc89/196922401282_Cover.jpg/600x600bb.jpg" alt="Super album cover">
-          <h3>Super</h3>
-          <p>FML · 2023</p>
-          <button type="button">+ Save</button>
+          <div class="card__body">
+            <h3>Super</h3>
+            <p>FML · 2023</p>
+            <button type="button">+ Save</button>
+          </div>
         </article>
         <article class="card">
           <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bc/64/e0/bc64e097-7ab4-5650-ed66-61a6b836370c/198704749377_Cover.jpg/600x600bb.jpg" alt="Thunder album cover">
-          <h3>Thunder</h3>
-          <p>Happy Burstday · 2025</p>
-          <button type="button">+ Save</button>
+          <div class="card__body">
+            <h3>Thunder</h3>
+            <p>Happy Burstday · 2025</p>
+            <button type="button">+ Save</button>
+          </div>
         </article>
 
       </div>

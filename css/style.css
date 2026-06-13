@@ -1,24 +1,171 @@
 /* ===== custom properties ===== */
 :root {
-  /* colour palette and spacing variables */
+  --color-rosequartz: #F7CAC9;
+  --color-serenity: #91A8D0;
+}
+/* ===== reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* ===== reset ===== */
-
+body {
+  background-color: #fef9f9;
+  font-family: sans-serif;
+  color: #1a1a1a;
+}
 /* ===== header ===== */
-
+nav {
+  background-color: #f0b8b6;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 /* ===== nav — use Flexbox here ===== */
-
-/* ===== login page ===== */
+.nav__links a{
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 1.5rem;
+}
+.nav__links a:hover {
+  color: var(--color-serenity);
+}
+.nav__links a.active {
+  text-decoration: underline;
+}
+/* ===== members page ===== */
 
 /* ===== main ===== */
-
+main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
 /* ===== form ===== */
-
+#search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+#searchbar, #sort-select {
+  padding: 0.5rem 1rem;
+  border: 1.5px solid var(--color-serenity);
+  border-radius: 20px;
+  font-size: 0.95rem;
+  outline: var(--color-rosequartz);
+  background-color: white;
+  transition: all 0.2s ease;
+}
+#searchbar {
+  flex: 1;
+}
+#searchbar:hover, #sort-select:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+} 
+#search-form button {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-serenity);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+#search-form button:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+.filter__pill {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-serenity);
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--color-serenity);
+  transition: all 0.2s ease;
+}
+.filter__pill input[type="radio"] {
+  display: none;
+}
+.filter__pill:has(input:checked) {
+  background-color: var(--color-serenity);
+  color: white;
+}
+.filter__pill:hover {
+  background-color: var(--color-serenity);
+  color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
 /* ===== results grid — use CSS Grid here ===== */
-
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
 /* ===== card ===== */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+.card img {
+  width: 100%;
+  display: block;
+}
+.card h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+.card p {
+  font-size: 0.85rem;
+  color: #777;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.card__body {
+  padding: 0.75rem 1rem;
+}
+.card button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: var(--color-rosequartz);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.card button:hover {
+  background-color: var(--color-serenity);
+  color: white;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+}
 
+.card__body {
+  flex: 1;
+}
 /* ===== saved grid — use CSS Grid here ===== */
 
 /* ===== loading & error states ===== */
