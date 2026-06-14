@@ -1,6 +1,11 @@
-const BASE_URL = ''; // replace with your API base URL
+const BASE_URL = 'https://itunes.apple.com'; // replace with your API base URL
 
 export async function fetchData(endpoint) {
+  const response = await fetch(BASE_URL + endpoint);
+  if (!response.ok) {
+    throw new Error('Something went wrong!');
+  }
+  return response.json();
   // fetch, check response.ok, return response.json()
 }
 

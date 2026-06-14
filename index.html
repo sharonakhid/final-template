@@ -76,12 +76,15 @@
             <input type="radio" name="unit-filter" value="bss">
             BSS
           </label>
-          <label class="filter__pill">
-            <input type="radio" name="unit-filter" value="leaderz">
-            Leaderz
-          </label>
         </div>
     </section>
+     <!-- dynamically generated cards land here -->
+    <section>
+      <div id="results-grid"></div>
+    </section>
+    <!-- loading and error states -->
+    <p id="loading-msg" hidden>Loading…</p>
+    <p id="error-msg" hidden></p>
     <section>
       <h2>Top Rated</h2>
       <div class="cards-grid">
@@ -114,14 +117,7 @@
       </div>
     </section>
 
-    <!-- loading and error states -->
-    <p id="loading-msg" hidden>Loading…</p>
-    <p id="error-msg" hidden></p>
 
-    <!-- dynamically generated cards land here -->
-    <section>
-      <div id="results-grid"></div>
-    </section>
 
   </main>
 
