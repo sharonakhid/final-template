@@ -1,4 +1,4 @@
-import { fetchData, getSaved, setSaved } from './api.js';
+import { fetchData, getSaved, setSaved, initStarRating } from './api.js';
 
 // --- State ---
 // keep your application state as an array of objects
@@ -97,7 +97,7 @@ function renderResults(items) {
 
     card.innerHTML = `
   <img src="${item.artworkUrl100.replace('100x100', '300x300')}" 
-       alt="${item.trackName} album cover">
+     alt="${item.trackName} album cover"
   <div class="card__body">
     <h3>${item.trackName}</h3>
     <p>${item.collectionName} · ${item.releaseDate?.slice(0, 4) ?? 'Unknown'}</p>
