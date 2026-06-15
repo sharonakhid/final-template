@@ -12,6 +12,24 @@ const errorMsg = document.getElementById('error-msg');
 const searchInput = document.getElementById('searchbar');
 const sortSelect = document.getElementById('sort-select');
 
+const debouncedSearch = debounce((query) => {
+  if (query.length >= 1) {
+    searchForm.dispatchEvent(new Event('submit'));
+  }
+}, 500);
+
+searchInput.addEventListener('input', () => {
+  debouncedSearch(searchInput.value.trim());
+});
+
+function debounce(fn, delay) {
+  let timer;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+
 let currentResults = [];
 
 const seventeen_artists = [
