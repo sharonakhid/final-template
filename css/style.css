@@ -357,6 +357,11 @@ audio::-webkit-media-controls-play-button {
   cursor: pointer;
   transition: color 0.2s ease;
 }
+.star-rating {
+  display: flex;
+  gap: 0.2rem;
+  margin: 0.5rem 0;
+}
 
 /* ===== saved grid — use CSS Grid here ===== */
 #tracklist-grid {
