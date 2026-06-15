@@ -185,7 +185,7 @@ searchForm.addEventListener('submit', async e => {
 
   } catch (error) {
     showLoading(false);
-    showError('Something went wrong. Check your internet conection!')
+    showError('Something went wrong. Check your internet connection!')
   }
 });
 
