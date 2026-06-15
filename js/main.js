@@ -12,6 +12,8 @@ const errorMsg = document.getElementById('error-msg');
 const searchInput = document.getElementById('searchbar');
 const sortSelect = document.getElementById('sort-select');
 
+let currentResults = [];
+
 const seventeen_artists = [
   'seventeen',
   'bss',
@@ -23,6 +25,26 @@ const seventeen_artists = [
   'seventeen hiphop unit',
   'seventeen performance unit'
 ];
+
+function sortResults(items) {
+  const sortValue = sortSelect.value;
+
+  if (sortValue === 'az') {
+    return [...items].sort((a, b) => 
+      a.trackName.localeCompare(b.trackName)
+    );
+  } else if (sortValue === 'za') {
+    return [...items].sort((a, b) => 
+      b.trackName.localeCompare(a.trackName)
+    );
+  } else if (sortValue === 'newest') {
+    return [...items].sort((a, b) => 
+      new Date(b.releaseDate) - new Date(a.releaseDate)
+    );
+  }
+
+  return items;
+}
 
 function handleSave(button, item) {
   const alreadySaved = savedItems.some(s => s.trackId === item.trackId);
@@ -40,35 +62,6 @@ function handleSave(button, item) {
   }
   
   setSaved(savedItems);
-}
-
-function initStarRating(card, item) {
-  const stars = card.querySelectorAll('.star-rating span');
-  
-  stars.forEach(star => {
-    star.addEventListener('click', () => {
-      const rating = parseInt(star.dataset.value);
-      stars.forEach((s, i) => {
-        s.style.color = i < rating ? '#F7CAC9' : '#ccc';
-      });
-      // save rating to the item
-      item.userRating = rating;
-    });
-
-    star.addEventListener('mouseover', () => {
-      const rating = parseInt(star.dataset.value);
-      stars.forEach((s, i) => {
-        s.style.color = i < rating ? '#F7CAC9' : '#ccc';
-      });
-    });
-
-    star.addEventListener('mouseout', () => {
-      const rating = item.userRating || 0;
-      stars.forEach((s, i) => {
-        s.style.color = i < rating ? '#F7CAC9' : '#ccc';
-      });
-    });
-  });
 }
 
 function isSVTSong(item) {
@@ -97,7 +90,7 @@ function renderResults(items) {
 
     card.innerHTML = `
   <img src="${item.artworkUrl100.replace('100x100', '300x300')}" 
-     alt="${item.trackName} album cover"
+     alt="${item.trackName} album cover">
   <div class="card__body">
     <h3>${item.trackName}</h3>
     <p>${item.collectionName} · ${item.releaseDate?.slice(0, 4) ?? 'Unknown'}</p>
@@ -168,10 +161,27 @@ searchForm.addEventListener('submit', async e => {
       return;
     }
 
-    renderResults(svtResults);
+    currentResults = svtResults; // save results
+    const sorted = sortResults(svtResults);
+    renderResults(sorted);
 
   } catch (error) {
     showLoading(false);
     showError('Something went wrong. Check your internet conection!')
   }
+});
+
+document.querySelectorAll('.filter__pill').forEach(pill => {
+  pill.addEventListener('change', () => {
+    const selectedUnit = document.querySelector('.filter__pill input:checked').value.toLowerCase();
+    
+    const filtered = selectedUnit === 'all'
+      ? currentResults
+      : currentResults.filter(item => {
+          const artist = item.artistName.toLowerCase();
+          return artist.includes(selectedUnit);
+        });
+    const sorted = sortResults(filtered);
+    renderResults(sorted);
+  });
 });
