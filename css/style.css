@@ -496,6 +496,21 @@ footer {
   #search-bar {
     width: 100%;
   }
+  #tracklist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
