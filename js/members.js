@@ -49,9 +49,8 @@ document.querySelectorAll('.filter__btn').forEach(btn => {
 
 //for contact form
 const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-
   const name = document.getElementById('name-input').value.trim();
   const email = document.getElementById('email-input').value.trim();
   const message = document.getElementById('message-input').value.trim();
@@ -62,6 +61,12 @@ contactForm.addEventListener('submit', (e) => {
     errorEl.hidden = false;
     return;
   }
+
+  await fetch('https://formspree.io/f/xnjyraka', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, message })
+  });
 
   errorEl.hidden = true;
   contactForm.reset();
