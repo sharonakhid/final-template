@@ -498,6 +498,7 @@ footer {
   }
   #tracklist-grid {
     grid-template-columns: 1fr;
+    padding: 0 1rem;
   }
 
   .cards-grid {
@@ -510,6 +511,15 @@ footer {
 
   #members-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  #results-grid .card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  .member-card__photo {
+    height: 150px;
+    object-fit: cover;
+    object-position: top;
   }
 }
 
